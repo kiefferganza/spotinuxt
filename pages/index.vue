@@ -1,11 +1,18 @@
 <template>
-  <h1>test</h1>
+  <div class="flex h-screen">
+    <div class="m-auto">
+      <Auth @login="login" />
+    </div>
+  </div>
 </template>
 <script setup>
 import { useAuthStore } from "@/store/authStore";
 const { isAuthenticated, authorize } = useAuthStore();
 
-onMounted(() => {
+const login = () => {
   authorize();
-});
+};
+// onMounted(() => {
+//   authorize();
+// });
 </script>

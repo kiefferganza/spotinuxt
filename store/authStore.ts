@@ -54,6 +54,7 @@ export const useAuthStore = defineStore("auth", () => {
         authCreds.value = response.data.value;
         console.log(response.data.value);
         localStorage.setItem("token", authCreds.value.access_token);
+        navigateTo("/top/artists");
       })
       .catch((error: any) => {
         console.log(error);
