@@ -1,13 +1,13 @@
 export function useArtist() {
   const artists = ref([]);
   const fetchArtists = async () => {
-    await useFetch("https://api.spotify.com/v1/me/top/artists")
+    await $fetch("https://api.spotify.com/v1/me/top/artists?limit=10")
       .then((response: any) => {
-        console.log(response, "res");
-        artists.value = response.data.value.items;
+        console.log(response.items, "res");
+        artists.value = response.items;
       })
-      .catch(() => {
-        alert("Error fetching artists");
+      .catch((response) => {
+        console.log("Error fetching artists", response);
       });
   };
 

@@ -1,6 +1,11 @@
 <template>
-  <div class="">
-    <Artists v-for="artist in artists" />
+  <div class="sm:ml-64 mt-16">
+    <div class="text-5xl font-bold tracking-tight text-black mb-5">
+      Your Top Artists
+    </div>
+    <div class="grid grid-cols-4 gap-3">
+      <Artists v-for="(artist, index) in artists" :data="artist" :key="index" />
+    </div>
   </div>
 </template>
 <script setup>
