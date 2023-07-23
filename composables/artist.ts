@@ -37,6 +37,22 @@ export function useArtist() {
       });
   };
 
+  const updateArtistFollowing = async (id: String, type: String) => {
+    await $fetch(
+      `https://api.spotify.com/v1/me/following/?type=artist&ids=${id}`,
+      {
+        method: type === "follow" ? "PUT" : "DELETE",
+      }
+    )
+      .then((response: any) => {
+        console.log(response, "res");
+        userFollowsArtist.value = response[0];
+      })
+      .catch((response) => {
+        console.log("Error fetching artists", response);
+      });
+  };
+
   return {
     artists,
     artist,
@@ -44,5 +60,6 @@ export function useArtist() {
     fetchArtists,
     fetchArtist,
     checkIfUserFollowsArtist,
+    updateArtistFollowing,
   };
 }
