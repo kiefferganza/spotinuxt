@@ -31,8 +31,8 @@ export function useArtist() {
       {}
     )
       .then((response: any) => {
-        console.log(response, "res");
-        artistTopTracks.value = response;
+        console.log(response.tracks, "res");
+        artistTopTracks.value = response.tracks;
       })
       .catch((response) => {
         console.log("Error fetching artists", response);
@@ -72,6 +72,7 @@ export function useArtist() {
     artists,
     artist,
     userFollowsArtist,
+    artistTopTracks,
     fetchArtists,
     fetchArtist,
     checkIfUserFollowsArtist,
