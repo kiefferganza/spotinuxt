@@ -4,6 +4,12 @@ Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introdu
 
 ## Setup
 
+Setup Env Variables
+Check out the example env
+Check out the [Spotify API documentation](https://developer.spotify.com/documentation/web-api) for more information.
+
+
+
 Make sure to install the dependencies:
 
 ```bash
@@ -59,5 +65,6 @@ pnpm run preview
 # yarn
 yarn preview
 ```
+
 
 Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
