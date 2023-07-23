@@ -27,7 +27,7 @@
         </div>
         <button
           @click="playInapp(tracks.uri)"
-          class="rounded-full w-10 h-10 flex items-center justify-center pl-0.5 bg-green-500 focus:outline-none mt-3 scale-75 hover:scale-100"
+          class="rounded-full w-10 h-10 flex items-center justify-center pl-0.5 bg-green-500 focus:outline-none mt-3"
         >
           <svg
             class="w-5 h-5"
