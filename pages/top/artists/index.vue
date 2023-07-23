@@ -12,6 +12,10 @@
 import { useArtist } from "@/composables/artist";
 import { useAuthStore } from "@/store/authStore";
 
+// definePageMeta({
+//   middleware: "auth",
+// });
+
 const { artists, fetchArtists } = useArtist();
 const { requestAccessToken, authCreds } = useAuthStore();
 const artistList = ref([]);
