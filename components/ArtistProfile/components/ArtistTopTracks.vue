@@ -25,22 +25,28 @@
             {{ tracks.album.name }}
           </span>
         </div>
-        <button
-          @click="playInapp(tracks.uri)"
-          class="rounded-full w-10 h-10 flex items-center justify-center pl-0.5 bg-green-500 focus:outline-none mt-3"
-        >
-          <svg
-            class="w-5 h-5"
-            viewBox="0 0 24 24"
-            fill="black"
-            stroke="black"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
+        <div class="group">
+          <span
+            class="group-hover:opacity-100 transition-opacity bg-gray-800 px-1 text-sm text-gray-100 rounded-md absolute -translate-x-1/2 translate-y-full opacity-0 m-4 mx-auto"
+            >Play in app</span
           >
-            <polygon points="5 3 19 12 5 21 5 3"></polygon>
-          </svg>
-        </button>
+          <button
+            @click="playInapp(tracks.uri)"
+            class="rounded-full w-10 h-10 flex items-center justify-center pl-0.5 focus:outline-none mt-3"
+          >
+            <svg
+              class="w-5 h-5"
+              viewBox="0 0 24 24"
+              fill="black"
+              stroke="black"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <polygon points="5 3 19 12 5 21 5 3"></polygon>
+            </svg>
+          </button>
+        </div>
       </div>
     </div>
   </div>
