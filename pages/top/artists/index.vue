@@ -3,7 +3,7 @@
     <div class="text-5xl font-bold tracking-tight text-black mb-5">
       Your Top Artists
     </div>
-    <div class="grid grid-cols-4 gap-3">
+    <div class="grid grid-cols-1x sm:grid-cols-4 gap-3">
       <Artists v-for="(artist, index) in artists" :data="artist" :key="index" />
     </div>
   </div>

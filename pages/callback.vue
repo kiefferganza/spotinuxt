@@ -1,5 +1,5 @@
 <template>
-  <h1>Callback goes here</h1>
+  <h1></h1>
 </template>
 <script setup>
 import { useAuthStore } from "@/store/authStore";
