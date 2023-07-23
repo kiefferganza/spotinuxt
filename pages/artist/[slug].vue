@@ -1,6 +1,10 @@
 <template>
   <div class="sm:ml-64 mt-20">
-    <ArtistProfile v-if="Object.keys(artist).length !== 0" :data="artist" />
+    <ArtistProfile
+      v-if="Object.keys(artist).length !== 0"
+      :data="artist"
+      :artist-followed="userFollowsArtist"
+    />
   </div>
 </template>
 
