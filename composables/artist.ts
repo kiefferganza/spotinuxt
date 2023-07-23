@@ -1,6 +1,7 @@
 export function useArtist() {
   const artists = ref([]);
   const artist = ref({});
+  const artistTopTracks = ref([]);
   const userFollowsArtist = ref(false);
   const fetchArtists = async () => {
     await $fetch("https://api.spotify.com/v1/me/top/artists?limit=10")
@@ -18,6 +19,20 @@ export function useArtist() {
       .then((response: any) => {
         console.log(response, "res");
         artist.value = response;
+      })
+      .catch((response) => {
+        console.log("Error fetching artists", response);
+      });
+  };
+
+  const fetchArtistTopTracks = async (id: String) => {
+    await $fetch(
+      `https://api.spotify.com/v1/artists/${id}/top-tracks?market=PH`,
+      {}
+    )
+      .then((response: any) => {
+        console.log(response, "res");
+        artistTopTracks.value = response;
       })
       .catch((response) => {
         console.log("Error fetching artists", response);
@@ -61,5 +76,6 @@ export function useArtist() {
     fetchArtist,
     checkIfUserFollowsArtist,
     updateArtistFollowing,
+    fetchArtistTopTracks,
   };
 }
