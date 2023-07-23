@@ -120,13 +120,14 @@ const props = defineProps({
     type: Object,
     required: true,
   },
-  artistFollowed: {
+  artistFollowedProp: {
     type: Boolean,
     required: true,
   },
 });
 const filledStars = ref(0);
 const emptyStars = ref(0);
+const artistFollowed = ref();
 const formatFollower = (num, precision = 2) => {
   const map = [
     { suffix: "T", threshold: 1e12 },
@@ -158,5 +159,9 @@ const calculatePercentage = () => {
   emptyStars.value = Math.floor(maxRating - filledStars.value);
 };
 
-onMounted(() => calculatePercentage());
+watchEffect(() => (artistFollowed.value = props.artistFollowedProp));
+
+onMounted(() => {
+  calculatePercentage();
+});
 </script>

@@ -3,7 +3,7 @@
     <ArtistProfile
       v-if="Object.keys(artist).length !== 0"
       :data="artist"
-      :artist-followed="userFollowsArtist"
+      :artist-followed-prop="userFollowsArtist"
     />
   </div>
 </template>
