@@ -1,11 +1,9 @@
 import { defineStore } from "pinia";
 import { withQuery } from "ufo";
-import { useArtistStore } from "@/store/artistStore";
 
 export const useAuthStore = defineStore("auth", () => {
   const router = useRouter();
   const config = useRuntimeConfig();
-  const { artists, fetchArtists } = useArtistStore();
 
   const isAuthenticated = ref<Boolean>(false);
   const authCreds = ref<Object>({

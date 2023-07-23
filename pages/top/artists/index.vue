@@ -4,10 +4,10 @@
   </div>
 </template>
 <script setup>
-import { useArtistStore } from "@/store/artistStore";
+import { useArtist } from "@/composables/artist";
 import { useAuthStore } from "@/store/authStore";
 
-const { artists, fetchArtists } = useArtistStore();
+const { artists, fetchArtists } = useArtist();
 const { requestAccessToken, authCreds } = useAuthStore();
 const artistList = ref([]);
 

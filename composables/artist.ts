@@ -1,9 +1,5 @@
-import { defineStore } from "pinia";
-import { withQuery } from "ufo";
-
-export const useArtistStore = defineStore("artist", () => {
+export function useArtist() {
   const artists = ref([]);
-
   const fetchArtists = async () => {
     await useFetch("https://api.spotify.com/v1/me/top/artists")
       .then((response: any) => {
@@ -16,4 +12,4 @@ export const useArtistStore = defineStore("artist", () => {
   };
 
   return { artists, fetchArtists };
-});
+}
