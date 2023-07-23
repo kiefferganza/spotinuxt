@@ -1,13 +1,18 @@
-# Nuxt 3 Minimal Starter
+# Spotify API Nuxt Implementation
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+Check out the [Spotify API documentation](https://developer.spotify.com/documentation/web-api) for more information.
+
 
 ## Setup
 
 Setup Env Variables
-Check out the example env
-Check out the [Spotify API documentation](https://developer.spotify.com/documentation/web-api) for more information.
 
+```env
+CLIENT_ID=
+CLIENT_SECRET=
+API_URL=https://api.spotify.com/v1/api/
+CALLBACK_URL=
+```
 
 
 Make sure to install the dependencies:
