@@ -18,7 +18,8 @@ export const useAuthStore = defineStore("auth", () => {
       withQuery("https://accounts.spotify.com/authorize?", {
         response_type: "code",
         client_id: config.public.CLIENT_ID,
-        scope: "user-read-private user-read-email user-top-read",
+        scope:
+          "user-read-private user-read-email user-top-read user-follow-read",
         redirect_uri: config.public.CALLBACK_URL,
         state: (Math.random() + 1).toString(36).substring(7),
       }),

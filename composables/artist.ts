@@ -1,6 +1,7 @@
 export function useArtist() {
   const artists = ref([]);
   const artist = ref({});
+  const userFollowsArtist = ref(false);
   const fetchArtists = async () => {
     await $fetch("https://api.spotify.com/v1/me/top/artists?limit=10")
       .then((response: any) => {
@@ -23,5 +24,25 @@ export function useArtist() {
       });
   };
 
-  return { artists, artist, fetchArtists, fetchArtist };
+  const checkIfUserFollowsArtist = async (id: String) => {
+    await $fetch(
+      `https://api.spotify.com/v1/me/following/contains/?type=artist&ids=${id}`
+    )
+      .then((response: any) => {
+        console.log(response, "res");
+        userFollowsArtist.value = response[0];
+      })
+      .catch((response) => {
+        console.log("Error fetching artists", response);
+      });
+  };
+
+  return {
+    artists,
+    artist,
+    userFollowsArtist,
+    fetchArtists,
+    fetchArtist,
+    checkIfUserFollowsArtist,
+  };
 }

@@ -9,8 +9,10 @@ import { useArtist } from "@/composables/artist";
 
 const route = useRoute();
 
-const { artist, fetchArtist } = useArtist();
+const { artist, userFollowsArtist, fetchArtist, checkIfUserFollowsArtist } =
+  useArtist();
 onMounted(async () => {
   await fetchArtist(route.params.slug);
+  await checkIfUserFollowsArtist(route.params.slug);
 });
 </script>
