@@ -1,8 +1,12 @@
 import { defineStore } from "pinia";
 import { withQuery } from "ufo";
+import { useArtistStore } from "@/store/artistStore";
 
 export const useAuthStore = defineStore("auth", () => {
+  const router = useRouter();
   const config = useRuntimeConfig();
+  const { artists, fetchArtists } = useArtistStore();
+
   const isAuthenticated = ref<Boolean>(false);
   const authCreds = ref<Object>({
     access_token: "",
@@ -16,7 +20,7 @@ export const useAuthStore = defineStore("auth", () => {
       withQuery("https://accounts.spotify.com/authorize?", {
         response_type: "code",
         client_id: config.public.CLIENT_ID,
-        scope: "user-read-private user-read-email",
+        scope: "user-read-private user-read-email user-top-read",
         redirect_uri: config.public.CALLBACK_URL,
         state: (Math.random() + 1).toString(36).substring(7),
       }),
@@ -54,7 +58,7 @@ export const useAuthStore = defineStore("auth", () => {
         authCreds.value = response.data.value;
         console.log(response.data.value);
         localStorage.setItem("token", authCreds.value.access_token);
-        navigateTo("/top/artists");
+        router.push("/top/artists");
       })
       .catch((error: any) => {
         console.log(error);
