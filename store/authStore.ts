@@ -55,13 +55,10 @@ export const useAuthStore = defineStore("auth", () => {
       .then((response: any) => {
         isAuthenticated.value = true;
         authCreds.value = response.data.value;
-        console.log(response.data.value);
         localStorage.setItem("token", authCreds.value.access_token);
         router.push("/top/artists");
       })
-      .catch((error: any) => {
-        console.log(error);
-      });
+      .catch((error: any) => {});
   };
 
   return { isAuthenticated, authCreds, authorize, requestAccessToken };
