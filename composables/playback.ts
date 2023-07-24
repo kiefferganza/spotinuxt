@@ -30,11 +30,33 @@ export function usePlayback() {
       .catch((response) => {});
   };
 
+  const nextTrack = async () => {
+    await $fetch(`https://api.spotify.com/v1/me/player/next`, {
+      method: "POST",
+    })
+      .then((response: any) => {
+        fetchCurrentPlaying();
+      })
+      .catch((response) => {});
+  };
+
+  const prevTrack = async () => {
+    await $fetch(`https://api.spotify.com/v1/me/player/previous`, {
+      method: "POST",
+    })
+      .then((response: any) => {
+        fetchCurrentPlaying();
+      })
+      .catch((response) => {});
+  };
+
   return {
     currentPlayback,
     isPlaying,
     fetchCurrentPlaying,
     playTrack,
     pauseTrack,
+    nextTrack,
+    prevTrack,
   };
 }

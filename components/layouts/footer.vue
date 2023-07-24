@@ -21,7 +21,11 @@
         class="flex flex-wrap items-center mt-3 text-sm font-medium text-gray-500 dark:text-gray-400 sm:mt-0"
       >
         <li>
-          <button type="button" class="mr-4 hover:underline md:mr-6">
+          <button
+            @click="prevTrack"
+            type="button"
+            class="mr-4 hover:underline md:mr-6"
+          >
             Prev
           </button>
         </li>
@@ -31,11 +35,15 @@
             type="button"
             class="mr-4 hover:underline md:mr-6"
           >
-            Play
+            {{ isPlaying ? "Pause" : "Play" }}
           </button>
         </li>
         <li>
-          <button type="button" class="mr-4 hover:underline md:mr-6">
+          <button
+            @click="nextTrack"
+            type="button"
+            class="mr-4 hover:underline md:mr-6"
+          >
             Next
           </button>
         </li>
@@ -53,6 +61,8 @@ const {
   fetchCurrentPlaying,
   playTrack,
   pauseTrack,
+  nextTrack,
+  prevTrack,
 } = usePlayback();
 
 const setPlayBackState = () => {
