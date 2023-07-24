@@ -1,5 +1,6 @@
 export default defineNuxtRouteMiddleware((to, from) => {
-  if (typeof localStorage === "undefined") {
+  if (localStorage.getItem("token") === null) {
+    console.log("here");
     return navigateTo("/");
   }
 });
