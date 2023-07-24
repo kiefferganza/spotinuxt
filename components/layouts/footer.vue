@@ -11,35 +11,57 @@
           alt="Track avatar"
           :src="currentPlayback?.album?.images[0]?.url"
         />
-        <div class="flex flex-col gap-0 mx-5 my-5">
-          <div class="text-green-500 mr-20">Now Playing</div>
+        <div class="flex flex-col gap-0 mx-5 my-5 align-items-start">
+          <div class="text-green-500">Now Playing</div>
 
-          <div class="pl-5">{{ currentPlayback.name }}</div>
+          <div>{{ currentPlayback.name }}</div>
         </div>
       </span>
-      <!-- <ul
+      <ul
         class="flex flex-wrap items-center mt-3 text-sm font-medium text-gray-500 dark:text-gray-400 sm:mt-0"
       >
         <li>
-          <a href="#" class="mr-4 hover:underline md:mr-6">About</a>
+          <button type="button" class="mr-4 hover:underline md:mr-6">
+            Prev
+          </button>
         </li>
         <li>
-          <a href="#" class="mr-4 hover:underline md:mr-6">Privacy Policy</a>
+          <button
+            @click="setPlayBackState"
+            type="button"
+            class="mr-4 hover:underline md:mr-6"
+          >
+            Play
+          </button>
         </li>
         <li>
-          <a href="#" class="mr-4 hover:underline md:mr-6">Licensing</a>
+          <button type="button" class="mr-4 hover:underline md:mr-6">
+            Next
+          </button>
         </li>
-        <li>
-          <a href="#" class="hover:underline">Contact</a>
-        </li>
-      </ul> -->
+        <li></li>
+      </ul>
     </div>
   </footer>
 </template>
 <script setup>
 import { usePlayback } from "@/composables/playback";
 
-const { currentPlayback, fetchCurrentPlaying } = usePlayback();
+const {
+  currentPlayback,
+  isPlaying,
+  fetchCurrentPlaying,
+  playTrack,
+  pauseTrack,
+} = usePlayback();
+
+const setPlayBackState = () => {
+  if (isPlaying.value === true) {
+    pauseTrack();
+  } else {
+    playTrack();
+  }
+};
 
 onMounted(async () => await fetchCurrentPlaying());
 </script>
