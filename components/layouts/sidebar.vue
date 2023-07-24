@@ -57,6 +57,10 @@
   </aside>
 </template>
 <script setup>
+import { usePlayback } from "@/composables/playback";
+const { fetchCurrentPlaying, currentPlayback } = usePlayback();
+
+onMounted(() => fetchCurrentPlaying());
 const router = useRouter();
 const sidebarItems = [
   {

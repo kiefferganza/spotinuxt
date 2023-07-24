@@ -19,7 +19,7 @@ export const useAuthStore = defineStore("auth", () => {
         response_type: "code",
         client_id: config.public.CLIENT_ID,
         scope:
-          "user-read-private user-read-email user-top-read user-follow-read user-follow-modify",
+          "user-read-private user-read-email user-top-read user-follow-read user-follow-modify user-read-playback-state user-modify-playback-state user-read-currently-playing",
         redirect_uri: config.public.CALLBACK_URL,
         state: (Math.random() + 1).toString(36).substring(7),
       }),
