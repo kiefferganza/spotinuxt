@@ -12,7 +12,8 @@
         :key="index"
         class="flex p-5"
         :class="{
-          'border-b-4 border-green-500': tracks.name === currentPlayback.name,
+          'border-b-4 border-green-500 bg-gray-100':
+            tracks.name === currentPlayback.name,
         }"
       >
         <img
@@ -67,5 +68,6 @@ const playInapp = (uri) => {
 
 onMounted(async () => {
   await fetchArtistTopTracks(route.params.slug);
+  await fetchCurrentPlaying();
 });
 </script>
