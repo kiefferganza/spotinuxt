@@ -3,6 +3,7 @@
     <layouts-sidebar v-if="isAuth" />
     <div class="container mx-auto">
       <NuxtPage />
+      <layouts-footer class="sm:ml-64" />
     </div>
   </div>
 </template>
