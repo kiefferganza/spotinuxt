@@ -11,10 +11,11 @@
           alt="Track avatar"
           :src="currentPlayback?.album?.images[0]?.url"
         />
-        <div class="flex flex-col gap-0 mx-5 my-5 align-items-start">
-          <div class="text-green-500">Now Playing on {{ currentDevice }}</div>
-
-          <div>{{ currentPlayback.name }}</div>
+        <div class="flex flex-col gap-1 mx-5 align-items-start">
+          <div class="text-green-500 text-xl">
+            {{ currentPlayback.name }}
+          </div>
+          <div class="">Now Playing on {{ currentDevice }}</div>
         </div>
       </span>
       <ul
