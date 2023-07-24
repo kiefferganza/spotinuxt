@@ -1,6 +1,15 @@
 export function usePlayback() {
   const currentPlayback = ref({});
+  const playbackDevices = ref({});
   const isPlaying = ref(false);
+
+  const fetchPlaybackDevices = async () => {
+    await $fetch(`https://api.spotify.com/v1/me/player/devices`)
+      .then((response: any) => {
+        playbackDevices.value = response.devices;
+      })
+      .catch((response) => {});
+  };
 
   const fetchCurrentPlaying = async () => {
     await $fetch(`https://api.spotify.com/v1/me/player/currently-playing`)
@@ -53,7 +62,9 @@ export function usePlayback() {
   return {
     currentPlayback,
     isPlaying,
+    playbackDevices,
     fetchCurrentPlaying,
+    fetchPlaybackDevices,
     playTrack,
     pauseTrack,
     nextTrack,

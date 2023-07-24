@@ -12,7 +12,7 @@
           :src="currentPlayback?.album?.images[0]?.url"
         />
         <div class="flex flex-col gap-0 mx-5 my-5 align-items-start">
-          <div class="text-green-500">Now Playing</div>
+          <div class="text-green-500">Now Playing on {{ currentDevice }}</div>
 
           <div>{{ currentPlayback.name }}</div>
         </div>
@@ -58,7 +58,9 @@ import { usePlayback } from "@/composables/playback";
 const {
   currentPlayback,
   isPlaying,
+  playbackDevices,
   fetchCurrentPlaying,
+  fetchPlaybackDevices,
   playTrack,
   pauseTrack,
   nextTrack,
@@ -73,5 +75,14 @@ const setPlayBackState = () => {
   }
 };
 
-onMounted(async () => await fetchCurrentPlaying());
+onMounted(async () => {
+  await fetchCurrentPlaying();
+  await fetchPlaybackDevices();
+});
+
+const currentDevice = computed(() => {
+  return playbackDevices.value.length > 0
+    ? playbackDevices?.value?.find((e) => e.is_active === true).name
+    : {};
+});
 </script>

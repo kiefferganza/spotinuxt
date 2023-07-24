@@ -4,13 +4,16 @@
   </div>
 
   <div
-    class="flex w-full bg-white shadow-md rounded-lg overflow-hidden mx-auto"
+    class="flex w-full bg-white shadow-md rounded-lg overflow-hidden mx-auto border-t-4 border-green-500"
   >
     <div class="flex flex-col w-full gap-2">
       <div
         v-for="(tracks, index) in artistTopTracks"
         :key="index"
-        class="flex p-5 border-b"
+        class="flex p-5"
+        :class="{
+          'border-b-4 border-green-500': tracks.name === currentPlayback.name,
+        }"
       >
         <img
           class="w-20 h-20 object-cover"
@@ -26,10 +29,6 @@
           </span>
         </div>
         <div class="group">
-          <span
-            class="group-hover:opacity-100 transition-opacity bg-gray-800 px-1 text-sm text-gray-100 rounded-md absolute -translate-x-1/2 translate-y-full opacity-0 m-4 mx-auto"
-            >Play in app</span
-          >
           <button
             @click="playInapp(tracks.uri)"
             class="rounded-full w-10 h-10 flex items-center justify-center pl-0.5 focus:outline-none mt-3"
@@ -53,9 +52,11 @@
 </template>
 <script setup>
 import { useArtist } from "@/composables/artist";
+import { usePlayback } from "@/composables/playback";
 const route = useRoute();
 
 const { artistTopTracks, fetchArtistTopTracks } = useArtist();
+const { currentPlayback, fetchCurrentPlaying } = usePlayback();
 const playInapp = (uri) => {
   navigateTo(uri, {
     open: {
