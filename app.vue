@@ -1,5 +1,6 @@
 <template>
   <div>
+    <layouts-header />
     <layouts-sidebar v-if="isAuth" />
     <div class="container mx-auto">
       <NuxtPage />
