@@ -1,14 +1,13 @@
 <template>
   <div>
-    <layouts-sidebar v-if="isAuthenticated" />
+    <layouts-sidebar v-if="isAuth" />
     <div class="container mx-auto">
       <NuxtPage />
     </div>
   </div>
 </template>
 <script setup>
-import { useAuthStore } from "@/store/authStore";
-const { isAuthenticated } = useAuthStore();
+const isAuth = () => localStorage.getItem("token") === null;
 </script>
 <style>
 .page-enter-active,
