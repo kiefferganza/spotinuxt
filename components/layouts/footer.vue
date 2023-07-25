@@ -1,5 +1,8 @@
 <template>
-  <footer class="bg-white rounded-lg shadow m-4 dark:bg-gray-800 z-99">
+  <footer
+    v-if="Object.keys(currentPlayback).length > 0"
+    class="bg-white rounded-lg shadow m-4 dark:bg-gray-800 z-99"
+  >
     <div
       class="w-full mx-auto max-w-screen-xl p-4 md:flex md:items-center md:justify-between"
     >
