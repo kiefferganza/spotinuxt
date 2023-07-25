@@ -6,6 +6,9 @@
   </div>
 </template>
 <script setup>
+definePageMeta({
+  layout: "default",
+});
 import { useAuthStore } from "@/store/authStore";
 const { isAuthenticated, authorize } = useAuthStore();
 

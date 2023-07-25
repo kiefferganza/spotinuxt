@@ -4,6 +4,10 @@
 <script setup>
 import { useAuthStore } from "@/store/authStore";
 
+definePageMeta({
+  layout: "default",
+});
+
 const { requestAccessToken, authCreds } = useAuthStore();
 const route = useRoute();
 

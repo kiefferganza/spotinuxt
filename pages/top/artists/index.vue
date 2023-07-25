@@ -11,6 +11,9 @@
 <script setup>
 import { useArtist } from "@/composables/artist";
 import { useAuthStore } from "@/store/authStore";
+definePageMeta({
+  layout: "auth",
+});
 
 const { artists, fetchArtists } = useArtist();
 const { requestAccessToken, authCreds } = useAuthStore();

@@ -10,6 +10,9 @@
 
 <script setup>
 import { useArtist } from "@/composables/artist";
+definePageMeta({
+  layout: "auth",
+});
 
 const route = useRoute();
 

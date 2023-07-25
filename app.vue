@@ -1,11 +1,8 @@
 <template>
   <div>
-    <layouts-header />
-    <layouts-sidebar v-if="isAuth" />
-    <div class="container mx-auto">
+    <NuxtLayout>
       <NuxtPage />
-      <layouts-footer class="sm:ml-64" />
-    </div>
+    </NuxtLayout>
   </div>
 </template>
 <script setup>
