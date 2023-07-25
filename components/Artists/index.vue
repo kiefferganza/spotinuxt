@@ -1,6 +1,6 @@
 <template>
   <div
-    class="drop-shadow-xl max-w-sm bg-white rounded-lg shadow hover:bg-gray-100 border-b-4 border-green-500"
+    class="drop-shadow-xl max-w-sm bg-white rounded-lg shadow hover:bg-gray-100 hover:border-b-4 border-green-500"
   >
     <img class="rounded-t-lg" :src="data.images[0].url" alt="" />
     <div class="p-5">
