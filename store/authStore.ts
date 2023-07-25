@@ -1,11 +1,9 @@
 import { defineStore } from "pinia";
 import { withQuery } from "ufo";
-import { useUserStore } from "@/store/userStore";
 
 export const useAuthStore = defineStore("auth", () => {
   const router = useRouter();
   const config = useRuntimeConfig();
-  const { fetchLoggedInUser } = useUserStore();
 
   const isAuthenticated = ref<Boolean>(false);
   const authCreds = ref<Object>({
@@ -55,7 +53,6 @@ export const useAuthStore = defineStore("auth", () => {
       },
     })
       .then((response: any) => {
-        fetchLoggedInUser();
         isAuthenticated.value = true;
         authCreds.value = response.data.value;
         localStorage.setItem("token", authCreds.value.access_token);
