@@ -10,6 +10,7 @@
           <a
             @click="router.push(item.href)"
             class="cursor-pointer flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100"
+            :class="{ 'bg-gray-200': route.path === item.href }"
           >
             <Icon name="bi:reception-4" color="black" />
             <span class="ml-3">{{ item.title }}</span>
@@ -25,6 +26,7 @@ const { fetchCurrentPlaying, currentPlayback } = usePlayback();
 
 onMounted(() => fetchCurrentPlaying());
 const router = useRouter();
+const route = useRoute();
 const sidebarItems = [
   {
     title: "Top Artists",
