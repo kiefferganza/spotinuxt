@@ -25,7 +25,7 @@
               ></path>
             </svg>
           </button>
-          <a href="https://flowbite.com" class="flex ml-2 md:mr-24">
+          <a href="/top/artists" class="flex ml-2 md:mr-24">
             <Icon name="bi:spotify" color="green" />
             <span
               class="self-center text-xl font-semibold sm:text-2xl whitespace-nowrap"
