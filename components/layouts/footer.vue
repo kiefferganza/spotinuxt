@@ -85,8 +85,6 @@ onMounted(async () => {
 });
 
 const currentDevice = computed(() => {
-  return playbackDevices.value.length > 0
-    ? playbackDevices?.value?.find((e) => e.is_active === true).name
-    : {};
+  return playbackDevices.value[0].name;
 });
 </script>

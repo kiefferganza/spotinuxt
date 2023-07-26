@@ -14,7 +14,7 @@ export function usePlayback() {
   const fetchCurrentPlaying = async () => {
     await $fetch(`https://api.spotify.com/v1/me/player/currently-playing`)
       .then((response: any) => {
-        currentPlayback.value = response.item;
+        currentPlayback.value = response.item ?? {};
         isPlaying.value = response.is_playing;
       })
       .catch((response) => {});
