@@ -85,6 +85,6 @@ onMounted(async () => {
 });
 
 const currentDevice = computed(() => {
-  return playbackDevices.value[0].name;
+  return playbackDevices?.value[0]?.name ?? "";
 });
 </script>
