@@ -35,7 +35,7 @@ const sidebarItems = [
   },
   {
     title: "Top Tracks",
-    href: "#",
+    href: "/top/tracks",
     icons: "bi:reception-4",
   },
 ];
