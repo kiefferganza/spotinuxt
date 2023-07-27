@@ -3,8 +3,8 @@
     <div class="text-3xl sm:text-5xl font-bold tracking-tight text-black mb-5">
       Your Top Tracks
     </div>
-    <div class="grid grid-cols-1 sm:grid-cols-4 gap-3">
-      <Artists v-for="(artist, index) in artists" :data="artist" :key="index" />
+    <div class="">
+      <TopTracks :data="topTracks" />
     </div>
   </div>
 </template>
