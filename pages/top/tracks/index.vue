@@ -9,20 +9,15 @@
   </div>
 </template>
 <script setup>
-import { useArtist } from "@/composables/artist";
-import { useAuthStore } from "@/store/authStore";
+import { useTracks } from "@/composables/track";
 definePageMeta({
   layout: "auth",
 });
 
-const { artists, fetchArtists } = useArtist();
-const { requestAccessToken, authCreds } = useAuthStore();
+const { topTracks, fetchTopTracks } = useTracks();
 const artistList = ref([]);
 
-watch(artists, (newValue) => {
-  artistList.value = newValue;
-});
 onMounted(async () => {
-  await fetchArtists();
+  await fetchTopTracks();
 });
 </script>
